@@ -127,7 +127,7 @@
             transform: translateY(-2px);
         }
 
-        /* Visual Comparison Graphic (CSS-based Before/After representation) */
+        /* Visual Comparison Graphic */
         .comparison-wrapper {
             max-width: 800px;
             margin: 50px auto 0 auto;
@@ -141,7 +141,7 @@
 
         .comparison-container {
             display: flex;
-            height: 350px;
+            height: 400px;
             position: relative;
         }
 
@@ -157,23 +157,23 @@
         }
 
         .before-side {
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600') center/cover;
-            filter: grayscale(40%) sepia(20%);
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('21515_2.png') center/cover no-repeat;
         }
 
         .after-side {
-            background: linear-gradient(rgba(212,175,55,0.15), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1603712449808-f784443bc05a?auto=format&fit=crop&q=80&w=600') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('21517.jpg') center/cover no-repeat;
             border-left: 3px solid var(--gold-primary);
         }
 
         .side-badge {
             position: absolute;
             top: 20px;
-            padding: 6px 15px;
+            padding: 6px 20px;
             font-weight: bold;
             text-transform: uppercase;
             font-size: 14px;
             letter-spacing: 1px;
+            border-radius: 3px;
         }
 
         .before-badge {
@@ -190,7 +190,11 @@
 
         .side-content {
             color: var(--white);
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.9), -1px -1px 4px rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 15px 25px;
+            border-radius: 6px;
+            backdrop-filter: blur(2px);
         }
 
         .side-content h3 {
@@ -248,7 +252,7 @@
             }
             .side {
                 width: 100%;
-                height: 200px;
+                height: 250px;
             }
             .after-side {
                 border-left: none;
@@ -474,7 +478,7 @@
             <p>Zapomnij o uciążliwym sprzątaniu i podaruj sobie bezcenny czas wolny. Działamy na terenie Ząbek i okolic, wnosząc blask i perfekcyjną czystość do każdego pomieszczenia.</p>
             <a href="#kontakt" class="cta-btn">Zarezerwuj termin</a>
             
-            <!-- Wizualne porównanie przed/po -->
+            <!-- Wizualne porównanie przed/po z Twoimi zdjęciami -->
             <div class="comparison-wrapper">
                 <div class="comparison-container">
                     <div class="side before-side">
@@ -485,7 +489,7 @@
                         </div>
                     </div>
                     <div class="side after-side">
-                        <span class="side-badge after-badge">Po wizycie Magdy</span>
+                        <span class="side-badge after-badge">Po</span>
                         <div class="side-content">
                             <h3>Lśniący Efekt!</h3>
                             <p>Idealna czystość, świeżość i harmonia.</p>
