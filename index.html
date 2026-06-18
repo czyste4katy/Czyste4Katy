@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czyste Kąty - Profesjonalne Sprzątanie Ząbki i Okolice</title>
+    <style>
+        :root {
+            --bg-dark: #1e2229;
+            --bg-light: #f7f9fa;
+            --grey-primary: #2d3436;
+            --grey-secondary: #636e72;
+            --gold-primary: #d4af37;
+            --gold-hover: #aa7c11;
+            --gold-light: #f3e5ab;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--grey-primary);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--bg-dark);
+            border-bottom: 3px solid var(--gold-primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gold-primary);
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2d3436 0%, #1e2229 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--gold-primary);
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--gold-primary);
+            display: block;
+            font-size: 24px;
+            letter-spacing: 4px;
+            margin-top: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #dfe6e9;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background-color: var(--gold-primary);
+            color: var(--bg-dark);
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--gold-hover);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Visual Comparison Graphic (CSS-based Before/After representation) */
+        .comparison-wrapper {
+            max-width: 800px;
+            margin: 50px auto 0 auto;
+            border: 4px solid var(--gold-primary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            background: #2d3436;
+        }
+
+        .comparison-container {
+            display: flex;
+            height: 350px;
+            position: relative;
+        }
+
+        .side {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .before-side {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600') center/cover;
+            filter: grayscale(40%) sepia(20%);
+        }
+
+        .after-side {
+            background: linear-gradient(rgba(212,175,55,0.15), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1603712449808-f784443bc05a?auto=format&fit=crop&q=80&w=600') center/cover;
+            border-left: 3px solid var(--gold-primary);
+        }
+
+        .side-badge {
+            position: absolute;
+            top: 20px;
+            padding: 6px 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .before-badge {
+            background-color: #d63031;
+            color: white;
+            left: 20px;
+        }
+
+        .after-badge {
+            background-color: var(--gold-primary);
+            color: var(--bg-dark);
+            right: 20px;
+        }
+
+        .side-content {
+            color: var(--white);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+        }
+
+        .side-content h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .side-content p {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* About Section */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold-primary);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid, .services-grid, .contact-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .comparison-container {
+                flex-direction: column;
+                height: auto;
+            }
+            .side {
+                width: 100%;
+                height: 200px;
+            }
+            .after-side {
+                border-left: none;
+                border-top: 3px solid var(--gold-primary);
+            }
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+
+        .about-text h2 {
+            color: var(--grey-primary);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--grey-secondary);
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        /* Services & Prices Section */
+        .services-bg {
+            background-color: #f0f2f5;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .price-card {
+            background-color: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--gold-primary);
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--gold-primary);
+        }
+
+        .price-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--grey-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-card .price {
+            font-size: 20px;
+            color: var(--gold-hover);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .price-card p {
+            font-size: 14px;
+            color: var(--grey-secondary);
+        }
+
+        .info-note {
+            text-align: center;
+            margin-top: 40px;
+            font-style: italic;
+            color: var(--grey-secondary);
+            font-size: 15px;
+        }
+
+        /* Why Us Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--grey-primary);
+        }
+
+        .feature-item p {
+            color: var(--grey-secondary);
+            font-size: 15px;
+        }
+
+        /* Contact Section */
+        .contact-bg {
+            background-color: var(--bg-dark);
+            color: var(--white);
+        }
+
+        .contact-bg .section-title {
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .contact-info h2 {
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+
+        .contact-info p {
+            margin-bottom: 25px;
+            font-size: 16px;
+            color: #dfe6e9;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-method-icon {
+            font-size: 24px;
+            color: var(--gold-primary);
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .contact-method-text a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .contact-method-text a:hover {
+            color: var(--gold-primary);
+        }
+
+        .contact-method-label {
+            font-size: 13px;
+            color: #b2bec3;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .area-badge {
+            background-color: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            padding: 10px 15px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px;
+            background-color: #11141a;
+            color: #636e72;
+            font-size: 14px;
+            border-top: 1px solid #2d3436;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">Czyste <span>Kąty</span></div>
+            <nav>
+                <a href="#o-nas">O nas</a>
+                <a href="#uslugi">Cennik i Usługi</a>
+                <a href="#dlaczego-my">Dlaczego my</a>
+                <a href="#kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Twoje wnętrze w złotym standardzie<span>Kompleksowe Sprzątanie Domów, Mieszkań i Biur</span></h1>
+            <p>Zapomnij o uciążliwym sprzątaniu i podaruj sobie bezcenny czas wolny. Działamy na terenie Ząbek i okolic, wnosząc blask i perfekcyjną czystość do każdego pomieszczenia.</p>
+            <a href="#kontakt" class="cta-btn">Zarezerwuj termin</a>
+            
+            <!-- Wizualne porównanie przed/po -->
+            <div class="comparison-wrapper">
+                <div class="comparison-container">
+                    <div class="side before-side">
+                        <span class="side-badge before-badge">Przed</span>
+                        <div class="side-content">
+                            <h3>Brak czasu?</h3>
+                            <p>Kurz, smugi i chaos dnia codziennego.</p>
+                        </div>
+                    </div>
+                    <div class="side after-side">
+                        <span class="side-badge after-badge">Po wizycie Magdy</span>
+                        <div class="side-content">
+                            <h3>Lśniący Efekt!</h3>
+                            <p>Idealna czystość, świeżość i harmonia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="o-nas" class="section">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 class="section-title" style="text-align: left; padding-bottom: 10px; margin-bottom: 20px; font-size: 28px;">O firmie Czyste Kąty</h2>
+                <p>Nazywam się <strong>Magda</strong> i stworzyłam firmę <strong>Czyste Kąty</strong> z pasji do idealnego porządku oraz chęci pomagania innym w organizowaniu ich przestrzeni życiowej i profesjonalnej. Doskonale rozumiem, jak szybkie tempo życia utrudnia codzienne dbanie o dom. Moim celem jest odciążenie Cię z tych obowiązków.</p>
+                <p>Do każdego zlecenia podchodzę w sposób całkowicie indywidualny. Niezależnie od tego, czy potrzebujesz ekspresowego odświeżenia mieszkania przed ważnym wydarzeniem, gruntownego sprzątania po uciążliwym remoncie, czy stałej opieki nad czystością Twojego biura – gwarantuję najwyższy standard usług, dyskrecję oraz dbałość o każdy, nawet najmniejszy detal.</p>
+                <p>Pracuję wyłącznie na sprawdzonych, bezpiecznych środkach czystości i profesjonalnym sprzęcie, co daje gwarancję idealnych rezultatów bez ryzyka uszkodzenia delikatnych powierzchni.</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #d4af37 0%, #2d3436 100%); padding: 40px; border-radius: 8px; color: white; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
+                <h3 style="font-size: 22px; margin-bottom: 15px; text-transform: uppercase; color: var(--gold-light);">Nasze Standardy Pracy:</h3>
+                <ul style="list-style-type: none; font-size: 16px;">
+                    <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: var(--gold-light); margin-right: 10px; font-weight: bold;">✔</span> Punktualność i niezawodność</li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: var(--gold-light); margin-right: 10px; font-weight: bold;">✔</span> Perfekcja i dbałość o detale (od zakamarków po fronty)</li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: var(--gold-light); margin-right: 10px; font-weight: bold;">✔</span> Bezpieczeństwo i pełne zaufanie</li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: var(--gold-light); margin-right: 10px; font-weight: bold;">✔</span> Elastyczne godziny dopasowane do Twojego planu dnia</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="uslugi" class="section services-bg">
+        <h2 class="section-title">Cennik i Zakres Usług</h2>
+        <p style="text-align: center; max-width: 600px; margin: -20px auto 40px auto; color: var(--grey-secondary);">Transparentne stawki dostosowane do Twoich potrzeb. Wybierz zakres prac i ciesz się czystością.</p>
+        
+        <div class="services-grid">
+            <div class="price-card">
+                <h3>Mycie okien <span class="price">od 25–45 zł <span style="font-size: 12px; color: var(--grey-secondary);">/ skrzydło</span></span></h3>
+                <p>Krystalicznie czyste szyby bez smug i zacieków. Mycie ram, parapetów oraz profesjonalne czyszczenie przeszkleń.</p>
+            </div>
+            <div class="price-card">
+                <h3>Mycie okien balkonowych <span class="price">od 40 zł</span></h3>
+                <p>Dokładne czyszczenie dużych przeszkleń balkonowych wraz z okuciami, przywracające maksymalną ilość światła do wnętrza.</p>
+            </div>
+            <div class="price-card">
+                <h3>Czyszczenie piekarnika <span class="price">od 70 zł</span></h3>
+                <p>Usuwanie przypalonego tłuszczu, trudnych plam oraz nagarów przy użyciu skutecznych i bezpiecznych dla żywności środków.</p>
+            </div>
+            <div class="price-card">
+                <h3>Czyszczenie lodówki <span class="price">od 60 zł</span></h3>
+                <p>Kompleksowe mycie wnętrza, półek i szuflad, połączone z pełną dezynfekcją oraz eliminacją nieprzyjemnych zapachów.</p>
+            </div>
+            <div class="price-card">
+                <h3>Prasowanie odzieży <span class="price">od 80 zł <span style="font-size: 12px; color: var(--grey-secondary);">/ godz.</span></span></h3>
+                <p>Perfekcyjne prasowanie koszul, pościeli, ubrań codziennych i eleganckich. Estetyczne składanie i przygotowanie do szafy.</p>
+            </div>
+            <div class="price-card">
+                <h3>Sprzątanie po remoncie <span class="price">od 20–30 zł <span style="font-size: 12px; color: var(--grey-secondary);">/ m²</span></span></h3>
+                <p>Usuwanie pyłu poremontowego, resztek farb, tynków, klejów oraz gruntowne doczyszczanie wszystkich powierzchni pionowych i poziomych.</p>
+            </div>
+            <div class="price-card">
+                <h3>Sprzątanie po wynajmie <span class="price">od 15–25 zł <span style="font-size: 12px; color: var(--grey-secondary);">/ m²</span></span></h3>
+                <p>Przygotowanie mieszkania dla nowego lokatora. Odświeżenie lokalu, doczyszczenie kuchni i łazienki na błysk, zwiększające wartość oferty.</p>
+            </div>
+            <div class="price-card">
+                <h3>Mycie tarasu / balkonu <span class="price">od 60 zł</span></h3>
+                <p>Usuwanie zanieczyszczeń atmosferycznych, liści, kurzu i mchu z posadzek tarasowych oraz balustrad.</p>
+            </div>
+            <div class="price-card" style="border-color: var(--gold-primary); background-color: #faf6e8;">
+                <h3>Inne usługi porządkowe <span class="price">Wycena ind.</span></h3>
+                <p>Potrzebujesz regularnego sprzątania domu, mieszkania lub biura? Masz nietypowe zlecenie? Skontaktuj się ze mną – dopasuję ofertę specjalnie dla Ciebie.</p>
+            </div>
+        </div>
+
+        <p class="info-note">* Podane ceny są cenami orientacyjnymi. Ostateczny koszt zależy od stopnia zabrudzenia oraz metrażu nieruchomości. Zachęcam do darmowej wyceny telefonicznej!</p>
+    </section>
+
+    <section id="dlaczego-my" class="section">
+        <h2 class="section-title">Dlaczego warto wybrać Czyste Kąty?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">✨</div>
+                <h3>Złoty Standard Jakości</h3>
+                <p>Nie idziemy na kompromisy. Czyścimy miejsca, o których inni zapominają. Twoje zadowolenie jest dla nas priorytetem.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3>Pełne Bezpieczeństwo</h3>
+                <p>Dyskrecja, uczciwość i szacunek do Twojej prywatnej przestrzeni. Możesz nam w pełni zaufać i cieszyć się efektami.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📍</div>
+                <h3>Lokalna Firma z Ząbek</h3>
+                <p>Działamy lokalnie, dlatego gwarantujemy szybkie terminy realizacji, elastyczność i brak ukrytych kosztów dojazdu.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="section contact-bg" style="max-width: 100%; margin: 0;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2 class="section-title">Skontaktuj się ze mną</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Zadzwoń lub napisz e-mail</h2>
+                    <p>Chcesz zamówić sprzątanie, zapytać o wolny termin lub uzyskać indywidualną wycenę? Jestem do Twojej dyspozycji. Odpowiadam sprawnie i rzeczowo.</p>
+                    
+                    <div class="contact-method">
+                        <div class="contact-method-icon">📞</div>
+                        <div class="contact-method-text">
+                            <span class="contact-method-label">Telefon (Imię: Magda)</span>
+                            <a href="tel:+48503159198">503-159-198</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-method-icon">✉</div>
+                        <div class="contact-method-text">
+                            <span class="contact-method-label">Adres E-mail</span>
+                            <a href="mailto:CzysteK4ty@gmail.com">CzysteK4ty@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background-color: #2d3436; padding: 30px; border-radius: 6px; border-left: 4px solid var(--gold-primary);">
+                    <h3 style="color: var(--gold-primary); margin-bottom: 15px; text-transform: uppercase;">Obszar działania</h3>
+                    <p style="color: #dfe6e9; margin-bottom: 15px;">Głównym obszarem mojej działalności są <strong>Ząbki (kod pocztowy 05-091)</strong> oraz okoliczne miejscowości powiatu wołomińskiego i dzielnice Warszawy (m.in. Targówek, Rembertów, Białołęka, Marki, Zielonka).</p>
+                    <span class="area-badge">Lokalizacja: Ząbki 05-091</span>
+                    <p style="color: #b2bec3; font-size: 14px; margin-top: 20px; font-style: italic;">Szybki dojazd na miejsce zlecenia, elastyczne umawianie godzin rannych oraz popołudniowych.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-bottom">
+        &copy; 2026 Czyste Kąty - Magda. Wszelkie prawa zastrzeżone. | Profesjonalne usługi porządkowe Ząbki.
+    </div>
+
+</body>
+</html>
