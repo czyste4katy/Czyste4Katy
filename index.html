@@ -74,7 +74,7 @@
         .hero {
             background: linear-gradient(135deg, #2d3436 0%, #1e2229 100%);
             color: var(--white);
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
             border-bottom: 5px solid var(--gold-primary);
         }
@@ -127,21 +127,20 @@
             transform: translateY(-2px);
         }
 
-        /* Visual Comparison Graphic */
+        /* Visual Comparison Graphic - Zoptymalizowany pod Mobile */
         .comparison-wrapper {
             max-width: 800px;
-            margin: 50px auto 0 auto;
+            margin: 40px auto 0 auto;
             border: 4px solid var(--gold-primary);
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            position: relative;
             background: #2d3436;
         }
 
         .comparison-container {
             display: flex;
-            height: 400px;
+            height: 450px;
             position: relative;
         }
 
@@ -149,19 +148,19 @@
             width: 50%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end; /* Przeniesienie napisów na dół dla lepszego widoku foto */
             align-items: center;
-            padding: 20px;
+            padding: 30px 20px;
             text-align: center;
             position: relative;
         }
 
         .before-side {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('21515_2.png') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('Przed.png') center/cover no-repeat;
         }
 
         .after-side {
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('21517.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url('Po.jpg') center/cover no-repeat;
             border-left: 3px solid var(--gold-primary);
         }
 
@@ -174,6 +173,7 @@
             font-size: 14px;
             letter-spacing: 1px;
             border-radius: 3px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
 
         .before-badge {
@@ -190,22 +190,25 @@
 
         .side-content {
             color: var(--white);
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.9), -1px -1px 4px rgba(0,0,0,0.5);
-            background-color: rgba(0, 0, 0, 0.4);
-            padding: 15px 25px;
+            background-color: rgba(0, 0, 0, 0.65);
+            padding: 15px 20px;
             border-radius: 6px;
-            backdrop-filter: blur(2px);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .side-content h3 {
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            margin-bottom: 5px;
             text-transform: uppercase;
         }
 
         .side-content p {
-            font-size: 15px;
+            font-size: 14px;
             margin: 0;
+            opacity: 0.9;
         }
 
         /* About Section */
@@ -242,24 +245,59 @@
             align-items: center;
         }
 
+        /* Responsywność - RWD (Telefony i Tablety) */
         @media (max-width: 768px) {
-            .about-grid, .services-grid, .contact-grid {
-                grid-template-columns: 1fr !important;
+            header {
+                position: static; /* Zapobiega zasłanianiu ekranu na małych telefonach */
             }
+            .header-container {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px 10px;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
+            .hero {
+                padding: 40px 15px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero h1 span {
+                font-size: 18px;
+                letter-spacing: 2px;
+            }
+            .hero p {
+                font-size: 15px;
+                margin-bottom: 25px;
+            }
+            /* Nowy układ Przed/Po na telefony - kafelki pionowe */
             .comparison-container {
                 flex-direction: column;
-                height: auto;
+                height: 700px; /* Wyższa przestrzeń na dwa pełne zdjęcia */
             }
             .side {
                 width: 100%;
-                height: 250px;
+                height: 50%; /* Każde zdjęcie zajmuje połowę wysokości kontenera */
+                padding: 20px 15px;
             }
             .after-side {
                 border-left: none;
-                border-top: 3px solid var(--gold-primary);
+                border-top: 4px solid var(--gold-primary); /* Złota kreska oddzielająca w pionie */
             }
-            .hero h1 {
-                font-size: 30px;
+            .side-content h3 {
+                font-size: 20px;
+            }
+            .about-grid, .services-grid, .contact-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .section {
+                padding: 50px 15px;
+            }
+            .section-title {
+                font-size: 26px;
             }
         }
 
@@ -323,6 +361,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 10px;
         }
 
         .price-card .price {
@@ -387,7 +426,7 @@
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 40px;
             margin-top: 40px;
         }
 
@@ -478,7 +517,6 @@
             <p>Zapomnij o uciążliwym sprzątaniu i podaruj sobie bezcenny czas wolny. Działamy na terenie Ząbek i okolic, wnosząc blask i perfekcyjną czystość do każdego pomieszczenia.</p>
             <a href="#kontakt" class="cta-btn">Zarezerwuj termin</a>
             
-            <!-- Wizualne porównanie przed/po z Twoimi zdjęciami -->
             <div class="comparison-wrapper">
                 <div class="comparison-container">
                     <div class="side before-side">
